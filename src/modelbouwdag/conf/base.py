@@ -13,7 +13,6 @@ BASE_DIR = ROOT_DIR  # used for systemjs
 #
 
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
 
 PROJECT_NAME = 'modelbouwdag'
 
@@ -90,7 +89,7 @@ TEMPLATES = [
             os.path.join(DJANGO_PROJECT_DIR, 'templates'),
         ],
         'OPTIONS': {
-            'context_processors': DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + [
+            'context_processors': list(DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS) + [
                 'django.core.context_processors.request',
                 'modelbouwdag.utils.context_processors.settings',
             ],
@@ -155,6 +154,7 @@ INSTALLED_APPS = [
     'systemjs',
 
     # Project applications.
+    'modelbouwdag.accounts',
 ]
 
 LOGGING_DIR = os.path.join(ROOT_DIR, 'log')
@@ -281,3 +281,8 @@ COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.CSSMinFilter'
 ]
+
+#
+#
+#
+AUTH_USER_MODEL = 'accounts.User'

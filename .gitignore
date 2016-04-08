@@ -19,5 +19,8 @@ conf/local.py
 /static/
 /mail/
 
+# Logging
+log/*.log
+
 # Compiled css
 src/modelbouwdag/static/modelbouwdag/css/

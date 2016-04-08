@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/maykinmedia/modelbouwdag.git"
+    "url": "git+ssh://git@github.com/modelbrouwers/modelbouwdag.git"
   },
-  "author": "Maykin Media",
+  "author": "Modelbrouwers.nl, Sergei Maertens",
   "license": "UNLICENSED",
-  "homepage": "https://maykinmedia.nl",
+  "homepage": "http://modelbouwdag.nl",
   "devDependencies": {
     "bourbon": "^4.2.6",
     "gulp": "^3.9.1",

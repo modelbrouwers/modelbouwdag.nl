@@ -22,9 +22,10 @@ django-systemjs==1.2
 django-treebeard==4.0     # via django-cms
 Django==1.8.12            # via django-choices, django-classy-tags, django-cms, django-formtools, django-rosetta, django-sniplates, django-treebeard
 djangocms-admin-style==1.1.0  # via django-cms
-html5lib==0.9999999       # via django-cms
+djangocms-text-ckeditor==2.9.1
+html5lib==0.9999999       # via django-cms, djangocms-text-ckeditor
 microsofttranslator==0.7  # via django-rosetta
-Pillow==3.2.0
+Pillow==3.2.0             # via djangocms-text-ckeditor
 polib==1.0.7              # via django-rosetta
 pytz==2016.3
 raven==5.12.0

@@ -1,0 +1,67 @@
+{
+  "name": "modelbouwdag",
+  "version": "1.0.0-alpha.0",
+  "description": "modelbouwdag project",
+  "main": "src/static/modelbouwdag/js/main.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/maykinmedia/modelbouwdag.git"
+  },
+  "author": "Maykin Media",
+  "license": "UNLICENSED",
+  "homepage": "https://maykinmedia.nl",
+  "devDependencies": {
+    "bourbon": "^4.2.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.2.0",
+    "jspm": "^0.17.0-beta.12"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
+    "font-awesome": "^4.5.0",
+    "normalize.css": "^4.0.0"
+  },
+  "jspm": {
+    "directories": {
+      "lib": "static/modelbouwdag/js",
+      "baseURL": "static"
+    },
+    "configFiles": {
+      "jspm:browser": "src/modelbouwdag/static/modelbouwdag/js/jspm.browser.js",
+      "jspm": "src/modelbouwdag/static/modelbouwdag/js/jspm.config.js"
+    },
+    "configFile": "src/modelbouwdag/static/modelbouwdag/js/jspm.config.js",
+    "dependencies": {
+      "jquery": "npm:jquery@^2.2.3"
+    },
+    "devDependencies": {
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.9"
+    },
+    "peerDependencies": {
+      "core-js": "npm:core-js@^1.1.4",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha"
+    },
+    "overrides": {
+      "npm:babel-runtime@5.8.38": {
+        "main": false,
+        "dependencies": {},
+        "optionalDependencies": {
+          "core-js": "^1.2.0"
+        }
+      },
+      "npm:jquery@2.2.3": {
+        "format": "amd"
+      }
+    }
+  }
+}

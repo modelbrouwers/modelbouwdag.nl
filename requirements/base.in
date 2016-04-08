@@ -2,15 +2,14 @@ Pillow
 pytz
 raven
 
-Django
+Django==1.8.12
 django-admin-tools
 django-autoslug
 django-axes
 django-choices
 django-compressor
-django-maven
 django-rosetta
 django-sniplates
 django-systemjs
 
-djangorestframework
+django-cms

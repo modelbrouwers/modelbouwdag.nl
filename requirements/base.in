@@ -8,6 +8,7 @@ django-autoslug
 django-axes
 django-choices
 django-compressor
+django-flat-theme
 django-rosetta
 django-sniplates
 django-systemjs

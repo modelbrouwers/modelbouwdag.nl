@@ -136,6 +136,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Optional applications.
+    'flat',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
     # 'django.contrib.humanize',

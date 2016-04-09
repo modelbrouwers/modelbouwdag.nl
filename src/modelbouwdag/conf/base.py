@@ -149,8 +149,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Optional applications.
-    'flat',
-    # 'djangocms_admin_style',
+    'djangocms_admin_style',
+    # 'flat',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
     # 'django.contrib.humanize',
@@ -182,9 +182,9 @@ INSTALLED_APPS = [
     'djangocms_text_ckeditor',
     'cmsplugin_filer_link',
     'cmsplugin_filer_image',
+    'cmsplugin_filer_video',
     # 'cmsplugin_filer_file',
     # 'cmsplugin_filer_teaser',
-    # 'cmsplugin_filer_video',
 
     # Project applications.
 ]

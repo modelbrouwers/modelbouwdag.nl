@@ -1,1 +1,27 @@
 {% extends "master.html" %}
+{% load cms_tags %}
+
+
+{% block content %}
+<header>
+    <figure>
+        {% placeholder header-image %}
+    </figure>
+    {# <nav> #}
+        {# <ul role="menu"> #}
+            {% placeholder menu-items %}
+        {# </ul> #}
+    {# </nav> #}
+</header>
+
+<article>
+    {% placeholder body %}
+</article>
+
+<footer>
+    <div>
+        {% placeholder sponsors %}
+    </div>
+    {% placeholder footer-image %}
+</footer>
+{% endblock content %}

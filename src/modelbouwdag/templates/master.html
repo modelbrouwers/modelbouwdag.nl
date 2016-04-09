@@ -1,12 +1,13 @@
-{% load compress staticfiles system_tags %}<!DOCTYPE html>
+{% load cms_tags compress sekizai_tags staticfiles system_tags %}<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}Modelbouwdag{% endblock %}</title>
+        <title>{% block title %}Modelbouwdag {% page_attribute "page_title" %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
 
+        {% render_block "css" %}
         {% compress css %}
             <link href="{% static "normalize.css" %}" media="screen, print" rel="stylesheet">
             <link href="{% static "css/font-awesome.min.css" %}" media="screen, print" rel="stylesheet">
@@ -27,26 +28,15 @@
     </head>
     <body class="{% block body-class %}{% endblock %}">
 
+        {% cms_toolbar %}
+
+        {% block base_content %}{% endblock %}
+
+        <main>
         {% block content %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h1>Welcome!</h1>
-                    <p>This is the default project page for Modelbouwdag.</p>
-                </div>
-                <div class="col-md-4">
-                    <h2>What now?</h2>
-                    <p>How about:</p>
-                    <ul>
-                        <li>Looking around <a href='/admin/'>the admin</a></li>
-                        <li>Adding your apps for <em>Modelbouwdag</em></li>
-                        <li>Hooking them up to your <em>urls.py</em></li>
-                        <li>Styling this page using Bootstrap!</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            {% placeholder base_content %}
         {% endblock %}
+        </main>
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -64,6 +54,6 @@
 
         {% block extra_js %}{% endblock %}
         {% endcompress %}
-
+        {% render_block "js" %}
     </body>
 </html>

@@ -2,6 +2,7 @@ import os
 
 import django.conf.global_settings as DEFAULT_SETTINGS
 from django.contrib.messages import constants as message_constants
+from django.utils.translation import ugettext_lazy as _
 
 # Automatically figure out the ROOT_DIR and PROJECT_DIR.
 DJANGO_PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
@@ -11,6 +12,7 @@ BASE_DIR = ROOT_DIR  # used for systemjs
 #
 # Standard Django settings.
 #
+SITE_ID = 1
 
 DEBUG = False
 
@@ -30,6 +32,11 @@ ALLOWED_HOSTS = []
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 TIME_ZONE = 'Europe/Amsterdam'
+
+LANGUAGES = [
+    ('nl', _('Dutch')),
+]
+LANGUAGE_CODE = 'nl'
 
 LOCALE_PATHS = (
     os.path.join(DJANGO_PROJECT_DIR, 'conf', 'locale'),
@@ -91,6 +98,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': list(DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS) + [
                 'django.core.context_processors.request',
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
                 'modelbouwdag.utils.context_processors.settings',
             ],
             'loaders': RAW_TEMPLATE_LOADERS
@@ -98,16 +107,22 @@ TEMPLATES = [
     },
 ]
 
+
 MIDDLEWARE_CLASSES = [
     # 'django.middleware.cache.UpdateCacheMiddleware',
+    'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 
     # External middleware.
     'axes.middleware.FailedLoginMiddleware',
@@ -129,14 +144,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.sessions',
-
-    # Note: If enabled, at least one Site object is required
-    # 'django.contrib.sites',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
     # Optional applications.
     'flat',
+    # 'djangocms_admin_style',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
     # 'django.contrib.humanize',
@@ -148,14 +162,20 @@ INSTALLED_APPS = [
     'admin_tools.menu',
     'admin_tools.dashboard',
 
+    # auth model required first
+    'modelbouwdag.accounts',
+
     # External applications.
     'axes',
+    'cms',
     'compressor',
+    'menus',
     'sniplates',
+    'sekizai',
     'systemjs',
+    'treebeard',
 
     # Project applications.
-    'modelbouwdag.accounts',
 ]
 
 LOGGING_DIR = os.path.join(ROOT_DIR, 'log')
@@ -284,6 +304,13 @@ COMPRESS_CSS_FILTERS = [
 ]
 
 #
-#
+# AUTH
 #
 AUTH_USER_MODEL = 'accounts.User'
+
+#
+# CMS
+#
+CMS_TEMPLATES = [
+    ('cms/base.html', _('base')),
+]

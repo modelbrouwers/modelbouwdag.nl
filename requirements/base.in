@@ -15,3 +15,5 @@ django-systemjs
 
 django-cms
 djangocms-text-ckeditor
+django-filer
+cmsplugin-filer

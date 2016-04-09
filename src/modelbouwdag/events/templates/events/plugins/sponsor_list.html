@@ -1,0 +1,9 @@
+<div class="sponsor-list">
+{% for event_sponsor in event_sponsors %}
+    {% with sponsor=event_sponsor.sponsor %}
+    <a href="{{ sponsor.url }}">
+        <img src="{{ sponsor.logo.image.url }}" alt="logo {{ sponsor.name }}">
+    </a>
+    {% endwith %}
+{% endfor %}
+</div>

@@ -4,8 +4,9 @@ from django.db import models
 from django.utils.text import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
-from cms.models.pluginmodel import CMSPlugin
+import bleach
 import markdown
+from cms.models.pluginmodel import CMSPlugin
 
 from modelbouwdag.events.models import Event
 
@@ -51,17 +52,19 @@ class Exhibitor(models.Model):
 
     def get_name(self):
         name = self.name.format(url=self.url) if self.url else self.name
-        return mark_safe(markdown.markdown(name))
+        html = markdown.markdown(name)
+        return mark_safe(bleach.clean(html, strip=True, tags=['strong', 'a']))
 
     def get_description(self):
         if not self.description:
             return ''
         desc = self.description.format(url=self.url) if self.url else self.description
-        return mark_safe(markdown.markdown(desc))
+        html = markdown.markdown(desc)
+        return mark_safe(bleach.clean(html, strip=True, tags=['strong', 'a']))
 
 
 class ExhibitorListPlugin(CMSPlugin):
-    for_event = models.ForeignKey(Event)
+    for_event = models.ForeignKey(Event, verbose_name=_('event'))
 
     class Meta:
         verbose_name = _('exhibitor list')

@@ -1,0 +1,13 @@
+<ul>
+    {% for exhibitor in exhibitors %}
+        <li>
+            <strong>{{ exhibitor.get_name }}</strong>
+            {% if exhibitor.description %}
+            ({{ exhibitor.get_description }})
+            {% endif %}
+            {% if exhibitor.types.all %}
+            <strong>{{ exhibitor.types.all|join:'&amp;' }}</strong>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

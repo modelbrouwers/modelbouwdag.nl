@@ -168,12 +168,21 @@ INSTALLED_APPS = [
     # External applications.
     'axes',
     'cms',
+    'cmsplugin_filer_link',
+    'cmsplugin_filer_image',
+    # 'cmsplugin_filer_file',
+    # 'cmsplugin_filer_teaser',
+    # 'cmsplugin_filer_video',
     'compressor',
+    'djangocms_text_ckeditor',
+    'easy_thumbnails',
+    'filer',
     'menus',
     'sniplates',
     'sekizai',
     'systemjs',
     'treebeard',
+    'mptt',
 
     # Project applications.
 ]
@@ -314,3 +323,15 @@ AUTH_USER_MODEL = 'accounts.User'
 CMS_TEMPLATES = [
     ('cms/base.html', _('base')),
 ]
+
+#
+# CMS PLUGINS
+#
+TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)

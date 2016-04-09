@@ -167,22 +167,24 @@ INSTALLED_APPS = [
 
     # External applications.
     'axes',
+    'compressor',
+    'easy_thumbnails',
+    'sniplates',
+    'sekizai',
+    'systemjs',
+
+    # CMS
+    'treebeard',
+    'mptt',
     'cms',
+    'menus',
+    'filer',
+    'djangocms_text_ckeditor',
     'cmsplugin_filer_link',
     'cmsplugin_filer_image',
     # 'cmsplugin_filer_file',
     # 'cmsplugin_filer_teaser',
     # 'cmsplugin_filer_video',
-    'compressor',
-    'djangocms_text_ckeditor',
-    'easy_thumbnails',
-    'filer',
-    'menus',
-    'sniplates',
-    'sekizai',
-    'systemjs',
-    'treebeard',
-    'mptt',
 
     # Project applications.
 ]
@@ -335,3 +337,15 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
+
+#
+# MIGRATIONS
+#
+MIGRATION_MODULES = {
+    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
+    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
+    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
+    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
+    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
+    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
+}

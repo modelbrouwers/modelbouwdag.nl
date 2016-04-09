@@ -30,6 +30,7 @@ djangocms-admin-style==1.1.0  # via django-cms
 djangocms-text-ckeditor==2.9.1
 easy-thumbnails==2.3      # via cmsplugin-filer, django-filer
 html5lib==0.9999999       # via django-cms, djangocms-text-ckeditor
+markdown==2.6.6
 microsofttranslator==0.7  # via django-rosetta
 Pillow==3.2.0             # via djangocms-text-ckeditor, easy-thumbnails
 polib==1.0.7              # via django-rosetta

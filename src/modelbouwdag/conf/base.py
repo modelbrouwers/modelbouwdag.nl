@@ -150,7 +150,7 @@ INSTALLED_APPS = [
 
     # Optional applications.
     'djangocms_admin_style',
-    # 'flat',
+    'flat',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
     # 'django.contrib.humanize',
@@ -187,6 +187,8 @@ INSTALLED_APPS = [
     # 'cmsplugin_filer_teaser',
 
     # Project applications.
+    'modelbouwdag.events',
+    'modelbouwdag.exhibitors',
 ]
 
 LOGGING_DIR = os.path.join(ROOT_DIR, 'log')

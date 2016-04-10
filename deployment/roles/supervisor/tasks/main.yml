@@ -24,7 +24,7 @@
   file: name="{{ project_home }}/log" state=directory
 
 - name: Ensure the supervisor config file is loaded
-  supervisorctl: name={{ prefix }} state=present
+  supervisorctl: name=uwsgi-{{ prefix }} state=present
   remote_user: root
   notify:
     - restart uwsgi

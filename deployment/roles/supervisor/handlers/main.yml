@@ -1,9 +1,9 @@
 ---
 
 - name: restart uwsgi
-  supervisorctl: name=uwsgi_{{ prefix }} state=restarted
+  supervisorctl: name=uwsgi-{{ prefix }} state=restarted
   remote_user: root
 
 - name: reread uwsgi confg
-  supervisorctl: name=uwsgi_{{ prefix }} state=reread
+  supervisorctl: name=uwsgi-{{ prefix }} state=reread
   remote_user: root

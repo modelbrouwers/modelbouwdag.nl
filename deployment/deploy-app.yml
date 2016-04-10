@@ -4,7 +4,7 @@
   hosts: "{{ target|default('staging') }}"
   remote_user: brouwdag
   environment:
-    PATH: "/opt/bin:{{ ansible_env.PATH }}"
+    PATH: "/opt/bin:/usr/pgsql-9.1/bin:{{ ansible_env.PATH }}"
   roles:
     - env
     - npm

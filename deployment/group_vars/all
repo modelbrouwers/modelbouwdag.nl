@@ -4,9 +4,9 @@ target_env: "{{ target|default('staging') }}"
 release: "{{ release_tag|default('master') }}"
 
 application_user: brouwdag
-project_name: "{{ application_user }}"
+project_name: "modelbouwdag"
 
-prefix: "{{ application_user + '_' + target_env }}"
+prefix: "{{ project_name + '_' + target_env }}"
 project_home: "{{ ansible_env.HOME }}/django/{{ target_env }}/"
 venv: "{{ ansible_env.HOME }}/.virtualenvs/{{ target_env }}"
 

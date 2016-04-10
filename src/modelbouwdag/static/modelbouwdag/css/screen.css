@@ -1,0 +1,157 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* See: http://www.fontsquirrel.com/tools/webfont-generator */
+/*
+* Hide the dotted lines around an element when it receives focus.
+*/
+* {
+  _noFocusLine: expression(this.hideFocus=true);
+}
+
+/* ie7 */
+::-moz-focus-inner {
+  border: 0;
+}
+
+/* firefox */
+:focus, a:focus {
+  outline: none !important;
+}
+
+/* ie8, chrome, etc */
+/* Align cols to bottom of a row */
+.row.align-bottom > [class^=col] {
+  display: table-cell;
+  vertical-align: bottom;
+  float: none;
+}
+
+body {
+  background-image: url("../img/bg.jpg");
+}
+
+ul[role="menu"] {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+  color: #006597;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+ul[role="menu"] > li {
+  text-align: left;
+  margin-right: 0.5em;
+}
+
+ul[role="menu"] > li:after {
+  content: "|";
+}
+
+ul[role="menu"] > li:last-child:after {
+  content: "";
+}
+
+main {
+  max-width: 790px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25), 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+main::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #006597;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.article-body,
+.article-body + footer {
+  padding: 0 10px;
+}
+
+hr.divider {
+  background-color: #aaa;
+  height: 2px;
+  margin: 1em 0;
+  border: none;
+}
+
+footer figure {
+  text-align: center;
+}
+
+body > footer {
+  max-width: 790px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.83em;
+  margin-bottom: 25px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+body > footer::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2 {
+  color: #006699;
+  font-size: 1.5em;
+}
+
+h3 {
+  color: rgba(0, 102, 153, 0.9);
+  font-size: 1.17em;
+}
+
+h4,
+h5,
+h6 {
+  color: rgba(0, 102, 153, 0.9);
+  font-size: 1em;
+}

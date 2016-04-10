@@ -8,7 +8,7 @@
   roles:
     - env
     - npm
-    - gulp
+    # - gulp
     - jspm
     - django
     - supervisor

@@ -24,7 +24,7 @@ log/*.log
 log/*.log.*
 
 # Compiled css
-src/modelbouwdag/static/modelbouwdag/css/
+# src/modelbouwdag/static/modelbouwdag/css/
 
 # Ansible
 *.retry

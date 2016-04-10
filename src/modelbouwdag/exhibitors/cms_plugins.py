@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
 
@@ -7,6 +9,7 @@ from . import models
 class ExhibitorListPlugin(CMSPluginBase):
     module = 'Exhibitors'
     model = models.ExhibitorListPlugin
+    name = _('exhibitor list')
     render_template = "exhibitors/plugins/list.html"
 
     def render(self, context, instance, placeholder):

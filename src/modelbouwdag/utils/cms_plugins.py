@@ -12,4 +12,11 @@ class DividerPlugin(CMSPluginBase):
     name = _('divider')
 
 
+class MenuItemPlugin(CMSPluginBase):
+    model = models.MenuItem
+    render_template = "plugins/menu_item.html"
+    name = _('menu item')
+
+
 plugin_pool.register_plugin(DividerPlugin)
+plugin_pool.register_plugin(MenuItemPlugin)

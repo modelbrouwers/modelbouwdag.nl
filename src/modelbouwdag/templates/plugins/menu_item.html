@@ -1,0 +1,8 @@
+<li>
+    <a href="{{ instance.get_href }}">
+        {{ instance.title }}
+        {% if instance.image %}
+            <img src="{{ instance.image.file.url }}">
+        {% endif %}
+    </a>
+</li>

@@ -18,7 +18,7 @@ def get_upcoming_event():
 
 def get_next_order():
     result = Exhibitor.objects.aggregate(max=models.Max('order'))
-    return result.get('max', 0) + 1
+    return (result.get('max') or 0) + 1
 
 
 class ExhibitorType(models.Model):

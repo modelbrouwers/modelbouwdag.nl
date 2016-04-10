@@ -25,6 +25,15 @@ a {
   text-decoration: none;
 }
 
-.article-body {
+.article-body,
+.article-body + footer {
   padding: 0 10px;
+}
+
+
+hr.divider {
+  background-color: #aaa;
+  height: 2px;
+  margin: 1em 0;
+  border: none;
 }

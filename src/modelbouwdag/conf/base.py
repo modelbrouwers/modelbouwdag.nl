@@ -334,6 +334,23 @@ CMS_TEMPLATES = [
 #
 TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
 
+CKEDITOR_SETTINGS = {
+    'language': '{{ language }}',
+    'toolbar_CMS': [
+        ['Undo', 'Redo'],
+        ['cmsplugins', '-', 'ShowBlocks'],
+        ['Format', 'Styles'],
+        ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
+        ['Maximize', ''],
+        '/',
+        ['Font', 'FontSize', 'Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+        ['HorizontalRule'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'],
+    ],
+    'skin': 'moono',
+}
+
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',

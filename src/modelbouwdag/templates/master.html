@@ -36,6 +36,10 @@
         {% endblock %}
         </main>
 
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -43,14 +47,11 @@
         <![endif]-->
 
         {% compress js %}
-
-        <script src="{% static "jspm_packages/system.js" %}"></script>
-        <script src="{% static "modelbouwdag/js/jspm.browser.js" %}"></script>
-        <script src="{% static "modelbouwdag/js/jspm.config.js" %}"></script>
-
-        {% systemjs_import "modelbouwdag/js/main.js" %}
-
-        {% block extra_js %}{% endblock %}
+            <script src="{% static "jspm_packages/system.js" %}"></script>
+            <script src="{% static "modelbouwdag/js/jspm.browser.js" %}"></script>
+            <script src="{% static "modelbouwdag/js/jspm.config.js" %}"></script>
+            {% systemjs_import "modelbouwdag/js/main.js" %}
+            {% block extra_js %}{% endblock %}
         {% endcompress %}
         {% render_block "js" %}
     </body>

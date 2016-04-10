@@ -43,3 +43,10 @@ footer {
     text-align: center;
   }
 }
+
+body > footer {
+  @include outer-container(790px);
+  font-size: 0.83em;
+  margin-bottom: 25px;
+  font-family: $headers-font;
+}

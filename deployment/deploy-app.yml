@@ -3,6 +3,8 @@
 - name: Update the application to the latest version
   hosts: "{{ target|default('staging') }}"
   remote_user: brouwdag
+  environment:
+    PATH: "/opt/bin:{{ ansible_env.PATH }}"
   roles:
     - env
     - npm

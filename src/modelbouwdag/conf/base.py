@@ -189,6 +189,7 @@ INSTALLED_APPS = [
     # Project applications.
     'modelbouwdag.events',
     'modelbouwdag.exhibitors',
+    'modelbouwdag.utils',
 ]
 
 LOGGING_DIR = os.path.join(ROOT_DIR, 'log')

@@ -21,6 +21,7 @@ conf/local.py
 
 # Logging
 log/*.log
+log/*.log.*
 
 # Compiled css
 src/modelbouwdag/static/modelbouwdag/css/

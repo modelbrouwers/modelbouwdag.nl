@@ -329,6 +329,12 @@ CMS_TEMPLATES = [
     ('cms/base.html', _('base')),
 ]
 
+CMS_PLACEHOLDER_CONF = {
+    'menu-items': {
+        'plugins': ['MenuItemPlugin']
+    }
+}
+
 #
 # CMS PLUGINS
 #

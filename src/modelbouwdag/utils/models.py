@@ -36,6 +36,9 @@ class MenuItem(CMSPlugin):
         verbose_name = _('menu item')
         verbose_name_plural = _('menu items')
 
+    def __str__(self):
+        return self.title
+
     def clean(self):
         if not self.url and not self.href:
             raise ValidationError(_('Either url or href must be supplied'))

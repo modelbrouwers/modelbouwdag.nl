@@ -1,0 +1,55 @@
+upstream {{ prefix }}_django {
+    server 127.0.0.1:{{ uwsgi_port }};
+}
+
+server {
+    listen       80;
+    server_name  {{ hostnames|join(' ') }};
+    error_log /var/log/nginx/{{ prefix }}.error.log warn;
+    access_log  /var/log/nginx/{{ prefix }}.access.log main;
+
+    charset utf-8;
+    root {{ root }};
+
+    set $maintenance off;
+    if (-f $document_root/maintenance.html ) {
+        set $maintenance on;
+    }
+    if ($remote_addr = "{{ home_ip }}") {
+        set $maintenance off;
+    }
+    if ($maintenance = on) {
+        return 503;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    location / {
+        uwsgi_pass {{ prefix }}_django;
+        include uwsgi_params;
+    }
+
+    location /static/ {
+        expires max;
+        access_log  /var/log/nginx/static.{{ prefix }}.access.log;
+    }
+
+    location /media/ {
+        expires 30d;
+        access_log  /var/log/nginx/media.{{ prefix }}.access.log;
+    }
+
+    location /protected {
+        internal;
+        access_log  /var/log/nginx/private.{{ prefix }}.access.log;
+        alias {{ root }}private_media;
+    }
+
+    error_page 503 @maintenance;
+    location @maintenance {
+        rewrite ^(.*)$ /maintenance.html break;
+        internal;
+    }
+}

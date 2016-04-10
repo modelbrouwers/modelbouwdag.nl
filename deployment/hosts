@@ -1,0 +1,5 @@
+[production]
+modelbouwdag.nl ansible_python_interpreter=/opt/python2.7/bin/python venv_command=/opt/python2.7/bin/virtualenv
+
+[localhost]
+localhost

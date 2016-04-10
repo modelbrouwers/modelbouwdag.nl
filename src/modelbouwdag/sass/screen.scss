@@ -1,7 +1,9 @@
-@import "bootstrap";
+@import "bourbon";
+@import "neat";
 
 @import "partials/fonts";
 @import "partials/colors";
 @import "partials/utils";
 
 @import "partials/base";
+@import "partials/typography";

@@ -1,0 +1,28 @@
+body {
+  font-family: $default-font;
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $headers-font;
+}
+
+h1,
+h2 {
+  color: $main-blue;
+  font-size: 1.5em;
+}
+
+h3 {
+  color: $main-blue-light;
+  font-size: 1.17em;
+}
+
+h4,
+h5,
+h6 {
+  color: $main-blue-light;
+  font-size: 1em;
+}

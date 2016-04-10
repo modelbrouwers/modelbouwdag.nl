@@ -18,6 +18,7 @@
   "homepage": "http://modelbouwdag.nl",
   "devDependencies": {
     "bourbon": "^4.2.6",
+    "bourbon-neat": "^1.7.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.2.0",

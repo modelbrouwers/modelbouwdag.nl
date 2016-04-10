@@ -6,7 +6,9 @@
             ({{ exhibitor.get_description }})
             {% endif %}
             {% if exhibitor.types.all %}
-            <strong>{{ exhibitor.types.all|join:'&amp;' }}</strong>
+            <strong>
+                {% for type in exhibitor.types.all %}{{ type.code }}{% if not forloop.last %} &amp; {% endif %}{% endfor %}
+            </strong>
             {% endif %}
         </li>
     {% endfor %}

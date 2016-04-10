@@ -4,6 +4,7 @@ var path = require('path');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var bourbon = require('bourbon');
+var neat = require('bourbon-neat');
 var autoprefixer = require('gulp-autoprefixer');
 
 
@@ -16,9 +17,7 @@ gulp.task('sass', function() {
         .pipe(sass({
             // sourceMap: true, // requires extra plugin
             outputStyle: 'expanded',
-            includePaths: [
-                path.join(__dirname, 'node_modules/bootstrap/scss')
-            ].concat(bourbon.includePaths)
+            includePaths: bourbon.includePaths.concat(neat.includePaths)
         }).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],

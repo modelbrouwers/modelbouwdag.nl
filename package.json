@@ -32,7 +32,7 @@
   },
   "jspm": {
     "directories": {
-      "lib": "static/modelbouwdag/js",
+      "lib": "static/modelbouwdag",
       "baseURL": "static"
     },
     "configFiles": {

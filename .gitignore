@@ -13,7 +13,7 @@ __pycache__
 /node_modules/
 
 # Environment
-conf/local.py
+src/modelbouwdag/conf/local.py
 /env/
 /media/
 /static/

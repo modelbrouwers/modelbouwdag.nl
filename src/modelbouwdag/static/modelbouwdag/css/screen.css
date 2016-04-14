@@ -126,6 +126,19 @@ body > footer::after {
   display: table;
 }
 
+object[type="application/x-shockwave-flash"] {
+  display: block;
+  margin: 0 auto;
+}
+
+img.filer_image.right {
+  float: right;
+}
+
+img.filer_image.left {
+  float: left;
+}
+
 body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;

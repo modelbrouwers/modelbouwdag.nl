@@ -78,3 +78,19 @@ body > footer {
   margin-bottom: 25px;
   font-family: $headers-font;
 }
+
+
+object[type="application/x-shockwave-flash"] {
+  display: block;
+  margin: 0 auto;
+}
+
+
+img.filer_image {
+  &.right {
+    float: right;
+  }
+  &.left {
+    float: left;
+  }
+}

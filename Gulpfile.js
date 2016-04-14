@@ -27,7 +27,9 @@ gulp.task('sass', function() {
 });
 
 
-// watch task
-gulp.task('default',function() {
+gulp.task('watch', function() {
     gulp.watch(sass_src, ['sass']);
-});
+})
+
+
+gulp.task('default', ['sass', 'watch']);

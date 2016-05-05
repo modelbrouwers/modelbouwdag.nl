@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 from django.utils.translation import ugettext_lazy as _
@@ -45,3 +46,30 @@ class MenuItem(CMSPlugin):
 
     def get_href(self):
         return self.url or self.href
+
+
+class FacebookPage(CMSPlugin):
+    """
+    Facebook page plugin (widget)
+    """
+    facebook_page_url = models.URLField(_('facebook page url'))
+    tabs = models.CharField(_('tabs'), max_length=255, default='timeline')
+    width = models.PositiveSmallIntegerField(
+        _('width'), blank=True, null=True,
+        validators=[MinValueValidator(180), MaxValueValidator(500)]
+    )
+    height = models.PositiveSmallIntegerField(
+        _('height'), blank=True, null=True,
+        validators=[MinValueValidator(70)]
+    )
+    small_header = models.BooleanField(_('use small header'), default=False)
+    hide_cover_photo = models.BooleanField(_('hide cover photo'), default=False)
+    adapt_to_container_width = models.BooleanField(_('adapt to container width'), default=True)
+    show_friends_faces = models.BooleanField(_('show friend\'s faces'), default=True)
+
+    class Meta:
+        verbose_name = _('facebook page plugin')
+        verbose_name_plural = _('facebook page plugins')
+
+    def __str__(self):
+        return self.facebook_page_url

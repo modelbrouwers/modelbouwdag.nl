@@ -139,6 +139,11 @@ img.filer_image.left {
   float: left;
 }
 
+.fb-page {
+  width: 100%;
+  text-align: center;
+}
+
 body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;

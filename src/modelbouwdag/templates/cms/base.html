@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load cms_tags %}
+{% load i18n cms_tags menu_tags %}
 
 
 {% block content %}
@@ -9,6 +9,8 @@
     </figure>
     <nav>
         <ul role="menu">
+            <li><a href="/">{% trans "home" %}</a></li>
+            {% show_menu 1 100 0 100 %}
             {% placeholder menu-items %}
         </ul>
     </nav>

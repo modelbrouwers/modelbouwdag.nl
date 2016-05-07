@@ -55,6 +55,7 @@ ul[role="menu"] {
 ul[role="menu"] > li {
   text-align: left;
   margin-right: 0.5em;
+  white-space: nowrap;
 }
 
 ul[role="menu"] > li:after {

@@ -4,6 +4,8 @@ from django.db import models
 
 from django.utils.translation import ugettext_lazy as _
 
+from cms.extensions import PageExtension
+from cms.extensions.extension_pool import extension_pool
 from cms.models.pluginmodel import CMSPlugin
 from filer.fields.image import FilerImageField
 
@@ -73,3 +75,10 @@ class FacebookPage(CMSPlugin):
 
     def __str__(self):
         return self.facebook_page_url
+
+
+class IconExtension(PageExtension):
+    image = FilerImageField(blank=True, null=True, on_delete=models.SET_NULL)
+
+
+extension_pool.register(IconExtension)

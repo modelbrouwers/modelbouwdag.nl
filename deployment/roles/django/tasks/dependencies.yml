@@ -17,7 +17,7 @@
 - name: Install requirements
   pip: virtualenv={{ venv }}
        chdir={{ project_home }}
-       requirements=requirements/{{ target_env }}.txt
+       requirements=requirements/{{ target }}.txt
        virtualenv_python=/opt/python3.5/bin/python3.5
   notify:
     - restart uwsgi

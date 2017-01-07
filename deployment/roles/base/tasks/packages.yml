@@ -5,8 +5,10 @@
   with_items:
     - git
     - nginx
+    - python-virtualenv
     - python3-dev
     - python3-setuptools
+    - python3-pip
     - redis-server
     # lxml depend on these
     - libxml2
@@ -16,19 +18,12 @@
     - swig
     - libjpeg-dev
 
-    - python3-pip
-    - python-virtualenv
-
-    # weasyprint
-    - libcairo2
-    - libpango1.0-0
-    - libgdk-pixbuf2.0-0
-    - libffi-dev
-    - shared-mime-info
-
     # front-end
     - nodejs
     - npm
+
+    - postgresql
+    - python-psycopg2
 
 - name: Check if node is available
   stat: path=/usr/bin/nodejs

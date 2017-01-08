@@ -8,4 +8,9 @@
     - npm
     - django
     - supervisor
-    - {role: nginx, remote_user: root}
+
+- name: Update nginx config
+  hosts: "{{ target|default('staging') }}"
+  remote_user: root
+  roles:
+    - nginx

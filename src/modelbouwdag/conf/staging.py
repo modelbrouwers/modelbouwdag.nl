@@ -5,36 +5,42 @@ from .base import *
 #
 
 DEBUG = False
-WSGI_APPLICATION = 'modelbouwdag.wsgi.staging.application'
+WSGI_APPLICATION = 'modelbouwdag.wsgi.default.application'
 ENVIRONMENT = 'staging'
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Sergei Maertens', 'sergei@modelbrouwers.nl'),
 )
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'modelbouwdag',
-        'USER': 'modelbouwdag',
-        'PASSWORD': 'modelbouwdag',
-        'HOST': '',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',  # Set to empty string for default.
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
     }
 }
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '!v-lk&if2tza$-mrmr+st3$g=!mous4!+-!ked^pkuurj^o)th'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/stable/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'staging.modelbouwdag.nl',
+    'www.staging.modelbouwdag.nl',
+]
 
 TEMPLATES[0]['OPTIONS']['loaders'] = [
     ('django.template.loaders.cached.Loader', RAW_TEMPLATE_LOADERS),
 ]
 
 LOGGING['loggers'].update({
+    'modelbouwdag': {
+        'handlers': ['project'],
+        'level': 'WARNING',
+        'propagate': True,
+    },
     'django': {
         'handlers': ['django'],
         'level': 'WARNING',
@@ -54,5 +60,5 @@ INSTALLED_APPS = INSTALLED_APPS + [
     'raven.contrib.django.raven_compat',
 ]
 RAVEN_CONFIG = {
-    'dsn': 'http://',
+    'dsn': os.getenv('RAVEN_DSN'),
 }

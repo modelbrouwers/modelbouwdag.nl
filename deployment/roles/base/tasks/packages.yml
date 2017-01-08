@@ -3,6 +3,7 @@
 - name: Provisioning - install the base packages
   apt: name={{ item }} state=present
   with_items:
+    - sudo
     - git
     - nginx
     - python-virtualenv
@@ -20,7 +21,6 @@
 
     # front-end
     - nodejs
-    - npm
 
     - postgresql
     - python-psycopg2

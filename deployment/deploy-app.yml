@@ -10,4 +10,4 @@
     - jspm
     - django
     - supervisor
-    - nginx
+    - {role: nginx, remote_user: root}

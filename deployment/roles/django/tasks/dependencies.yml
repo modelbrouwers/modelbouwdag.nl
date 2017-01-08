@@ -13,12 +13,13 @@
   pip: virtualenv={{ venv }}
        name=pip
        extra_args='--upgrade'
+       virtualenv_python=python3
 
 - name: Install requirements
   pip: virtualenv={{ venv }}
        chdir={{ project_home }}
        requirements=requirements/{{ target }}.txt
-       virtualenv_python=/opt/python3.5/bin/python3.5
+       virtualenv_python=python3
   notify:
     - restart uwsgi
 

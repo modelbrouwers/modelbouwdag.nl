@@ -7,7 +7,7 @@ application_user: brouwdag
 project_name: modelbouwdag
 
 prefix: "{{ project_name + '_' + target }}"
-project_home: "{{ ansible_env.HOME }}/django/{{ target }}/"
-venv: "{{ ansible_env.HOME }}/.virtualenvs/{{ target }}"
+project_home: "/home/{{ application_user }}/django/{{ target }}/"
+venv: "/home/{{ application_user }}/.virtualenvs/{{ target }}"
 
 settings_module: "modelbouwdag.conf.{{ target }}"

@@ -1,8 +1,5 @@
 repository: https://github.com/modelbrouwers/modelbouwdag.nl.git
 
-target: staging
-release: master
-
 application_user: brouwdag
 project_name: modelbouwdag
 

@@ -1,5 +1,7 @@
 ---
 
+- debug: var=env_vars
+
 - name: Ensure environment file directory exists
   file: name={{ env_dir }} state=directory mode=0700 owner={{ application_user }}
 

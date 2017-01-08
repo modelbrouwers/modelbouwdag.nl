@@ -1,7 +1,7 @@
 ---
 
 - name: Provision the server with all required packages and user accounts
-  hosts: "{{ target|default('staging') }}"
+  hosts: "{{ target }}"
   remote_user: root
   roles:
     - users

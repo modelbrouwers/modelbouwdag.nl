@@ -1,6 +1,6 @@
 {
   "name": "modelbouwdag",
-  "version": "1.0.0-alpha.0",
+  "version": "1.3.0",
   "description": "modelbouwdag project",
   "main": "src/static/modelbouwdag/js/main.js",
   "directories": {

@@ -2,12 +2,10 @@
 
 - name: Update the application to the latest version
   hosts: "{{ target|default('staging') }}"
-  remote_user: brouwdag
+  remote_user: "{{ application_user }}"
   roles:
     - env
     - npm
-    # - gulp
-    - jspm
     - django
     - supervisor
     - {role: nginx, remote_user: root}

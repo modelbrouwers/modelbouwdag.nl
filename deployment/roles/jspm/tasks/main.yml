@@ -1,9 +1,0 @@
----
-- name: Install JSPM
-  npm: name=jspm global=yes
-  remote_user: root
-
-- name: Install dependencies with JSPM
-  command: /opt/bin/jspm install
-  args:
-    chdir: "{{ project_home }}"

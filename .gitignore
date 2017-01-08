@@ -28,3 +28,4 @@ log/*.log.*
 
 # Ansible
 *.retry
+.vault_password.txt

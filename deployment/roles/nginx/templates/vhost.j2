@@ -5,8 +5,8 @@ upstream {{ prefix }}_django {
 server {
     listen       80;
     server_name  {{ hostnames|join(' ') }};
-    error_log /var/log/nginx/{{ prefix }}.error.log warn;
-    access_log  /var/log/nginx/{{ prefix }}.access.log main;
+    error_log /var/log/nginx/{{ application_user }}/{{ prefix }}.error.log warn;
+    access_log  /var/log/nginx/{{ application_user }}/{{ prefix }}.access.log main;
 
     charset utf-8;
     root {{ root }};
@@ -33,17 +33,17 @@ server {
 
     location /static/ {
         expires max;
-        access_log  /var/log/nginx/static.{{ prefix }}.access.log;
+        access_log  /var/log/nginx/{{ application_user }}/static.{{ prefix }}.access.log;
     }
 
     location /media/ {
         expires 30d;
-        access_log  /var/log/nginx/media.{{ prefix }}.access.log;
+        access_log  /var/log/nginx/{{ application_user }}/media.{{ prefix }}.access.log;
     }
 
     location /protected {
         internal;
-        access_log  /var/log/nginx/private.{{ prefix }}.access.log;
+        access_log  /var/log/nginx/{{ application_user }}/private.{{ prefix }}.access.log;
         alias {{ root }}private_media;
     }
 

@@ -56,16 +56,8 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-
-        {% compress js %}
-            <script src="{% static "jspm_packages/system.js" %}"></script>
-            <script src="{% static "modelbouwdag/js/jspm.browser.js" %}"></script>
-            <script src="{% static "modelbouwdag/js/jspm.config.js" %}"></script>
-            {% systemjs_import "modelbouwdag/js/main.js" %}
-            {% block extra_js %}{% endblock %}
-        {% endcompress %}
         {% render_block "js" %}
-        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fa3f1b10f0f8350"></script>
     </body>
 </html>

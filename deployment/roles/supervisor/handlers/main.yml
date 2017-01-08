@@ -4,6 +4,6 @@
   supervisorctl: name=uwsgi-{{ prefix }} state=restarted
   remote_user: root
 
-- name: reread uwsgi confg
+- name: reread uwsgi config
   supervisorctl: name=uwsgi-{{ prefix }} state=reread
   remote_user: root

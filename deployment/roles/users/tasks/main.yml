@@ -1,0 +1,13 @@
+---
+
+- name: Create the user-named goup(s)
+  group: name="{{ application_user }}" state="present"
+
+- name: Create the system user(s)
+  user: name="{{ application_user }}" group="{{ application_user }}"
+
+- name: Copy authorized public keys
+  authorized_key: user="{{ application_user }}"
+                  key="{{ lookup('file', 'files/pubkeys/' + item + '.pub') }}"
+  with_items:
+    - sergei

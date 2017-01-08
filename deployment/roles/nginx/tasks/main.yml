@@ -2,13 +2,26 @@
 
 - name: make sure the log dir exists
   file: path=/var/log/nginx/ state=directory
-  remote_user: root
+
+- name: Create application nginx log directory
+  file: dest="/var/log/nginx/{{ application_user }}" state=directory
+        owner=www-data group=www-data mode="u=rwx,g=rx,o-rwx"
+
+- name: Set up correct logrotate for nginx
+  template: src=etc/logrotate.d/nginx dest=/etc/logrotate.d/nginx
 
 - name: Create the nginx vhost
   template: src=vhost.j2
-            dest=/usr/local/nginx/conf/vhost/{{ prefix }}.conf
-            owner={{ application_user }}
-            group={{ application_user }}
+            dest="/etc/nginx/sites-available/{{ prefix }}"
+            owner="{{ application_user }}"
+            group="{{ application_user }}"
             mode=0644
-  remote_user: root
   notify: reload nginx
+
+- name: Enable the nginx vhost
+  file:
+    src="../sites-available/{{ prefix }}"
+    dest="/etc/nginx/sites-enabled/{{ prefix }}"
+    state=link
+  notify:
+    - reload nginx

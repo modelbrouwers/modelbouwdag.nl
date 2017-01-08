@@ -2,14 +2,15 @@
 
 - name: Update the application to the latest version
   hosts: "{{ target|default('staging') }}"
-  remote_user: brouwdag
-  environment:
-    PATH: "/opt/bin:/usr/pgsql-9.1/bin:{{ ansible_env.PATH }}"
+  remote_user: "{{ application_user }}"
   roles:
     - env
     - npm
-    # - gulp
-    - jspm
     - django
     - supervisor
+
+- name: Update nginx config
+  hosts: "{{ target|default('staging') }}"
+  remote_user: root
+  roles:
     - nginx

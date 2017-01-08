@@ -4,6 +4,7 @@
   hosts: "{{ target|default('staging') }}"
   remote_user: root
   roles:
+    - users
     - base
     - postgres
     - nginx

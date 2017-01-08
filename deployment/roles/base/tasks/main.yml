@@ -1,6 +1,5 @@
 ---
 # Set up the base system
 
-# - include: packages.yml
-- include: users.yml
+- include: packages.yml
 - include: create_dirs.yml

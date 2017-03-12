@@ -41,13 +41,10 @@ ul[role="menu"] {
   margin: 0 10px;
   padding: 0;
   color: #006597;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
 }
@@ -79,7 +76,7 @@ main {
 main::after {
   clear: both;
   content: "";
-  display: table;
+  display: block;
 }
 
 figure {
@@ -124,7 +121,7 @@ body > footer {
 body > footer::after {
   clear: both;
   content: "";
-  display: table;
+  display: block;
 }
 
 object[type="application/x-shockwave-flash"] {

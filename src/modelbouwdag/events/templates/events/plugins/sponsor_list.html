@@ -2,7 +2,7 @@
 {% for event_sponsor in event_sponsors %}
     {% with sponsor=event_sponsor.sponsor %}
     <a href="{{ sponsor.url }}">
-        <img src="{{ sponsor.logo.file.url }}" alt="logo {{ sponsor.name }}">
+        <img src="{{ sponsor.logo.url }}" alt="logo {{ sponsor.name }}">
     </a>
     {% endwith %}
 {% endfor %}

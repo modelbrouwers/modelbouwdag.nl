@@ -182,6 +182,7 @@ INSTALLED_APPS = [
     'djangocms_text_ckeditor',
     'cmsplugin_filer_link',
     'cmsplugin_filer_image',
+    'djangocms_video',
     'cmsplugin_filer_video',
     # 'cmsplugin_filer_file',
     # 'cmsplugin_filer_teaser',
@@ -330,6 +331,9 @@ CMS_TEMPLATES = [
 ]
 
 CMS_PLACEHOLDER_CONF = {
+    None: {
+        'excluded_plugins': ['FilerVideoPlugin']
+    },
     'menu-items': {
         'plugins': ['MenuItemPlugin']
     }

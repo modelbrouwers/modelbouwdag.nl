@@ -16,6 +16,7 @@ django-sniplates
 django-systemjs
 
 django-cms
-djangocms-text-ckeditor
+djangocms-text-ckeditor>=3.2
 django-filer
 cmsplugin-filer
+djangocms-video
